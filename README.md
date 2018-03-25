@@ -15,3 +15,13 @@ The Solution contains 6 java files
 6. parking_lot.java
     This class contains the main method
 
+
+To run the code
+
+1. Run using jar file 
+
+java -cp target/ParkingLotSystem-1.0.jar com.jitendra.parking_lot file_inputs.txt or
+2. Run using the shell script
+
+./parking_lot file_inputs.txt
+
