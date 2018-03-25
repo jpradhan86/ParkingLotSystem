@@ -18,7 +18,7 @@ The Solution contains 6 java files
 
     This class contains the logic for user input or file input.
 
-6. parking_lot.java
+6. ParkingLotDriver.java
     
     This class contains the main method
 
@@ -27,9 +27,9 @@ To run the code
 
 1. Run using jar file 
 
-    java -cp target/ParkingLotSystem-1.0.jar com.jitendra.parking_lot file_inputs.txt (File input)
+    java -cp target/ParkingLotSystem-1.0.jar com.jitendra.ParkingLotDriver file_inputs.txt (File input)
 
-    java -cp target/ParkingLotSystem-1.0.jar com.jitendra.parking_lot (Interactive)
+    java -cp target/ParkingLotSystem-1.0.jar com.jitendra.ParkingLotDriver (Interactive)
 
 2. Run using the shell script
 
