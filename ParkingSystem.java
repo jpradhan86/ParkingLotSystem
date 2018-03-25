@@ -21,9 +21,7 @@ public class ParkingSystem {
         ParkingLot parkingLot = new ParkingLot();
         while(true) {
             try {
-                    System.out.println("Input:");
-                    String cmd = reader.readLine();
-                    System.out.println("Output:");
+                String cmd = reader.readLine();
                 CommandBuilder.run_cmd(parkingLot, cmd);
             } catch (IOException e) {
                 System.err.println(e);
