@@ -1,9 +1,8 @@
-package ParkingSystem;
-import java.io.*;
+package com.gojek.assignment;
 import java.util.*;
 
 public class ParkingLot {
-    private ParkingSlot[] parkingSlots;
+	private ParkingSlot[] parkingSlots;
     private Queue<Integer> emptySlots;
     private int totalSlots;
 
@@ -43,7 +42,7 @@ public class ParkingLot {
     public void status() {
         System.out.println("Slot No.\tRegistration No\tColour");
         for(int i=0;i<totalSlots;i++) {
-            if (parkingSlots[i] != null) 
+            if (parkingSlots[i] != null)
                 System.out.println(parkingSlots[i]);
         }
     }
@@ -84,49 +83,7 @@ public class ParkingLot {
                 break;
             }
         }
-        if (!found) 
+        if (!found)
             System.out.println("Not found");
-    }
-}
-
-class ParkingSlot {
-    private Vehicle vehicle;
-    private int slotNumber;
-    public ParkingSlot(int slotNumber, Vehicle vehicle) {
-        this.vehicle = vehicle;
-        this.slotNumber = slotNumber;
-    }
-    public String toString() {
-        return slotNumber + "\t" + vehicle;
-    }
-    public int getSlotNumber() {
-        return slotNumber;
-    }
-    public Vehicle getVehicle() {
-        return this.vehicle;
-    }
-}
-
-class Vehicle {
-    private String registrationNumber;
-    private String color;
-    public Vehicle(String registrationNumber, String color) {
-        setRegistrationNumber(registrationNumber);
-        setColor(color);
-    }
-    private void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-    private void setColor(String color) {
-        this.color = color;
-    }
-    public String getColor() {
-        return color;
-    }
-    public String toString() {
-        return getRegistrationNumber() + "\t" + getColor(); 
     }
 }
