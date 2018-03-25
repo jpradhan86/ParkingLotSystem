@@ -1,7 +1,7 @@
-package com.gojek.assignment;
+package com.jitendra;
 
 public class ParkingSlot {
-	private Vehicle vehicle;
+    private Vehicle vehicle;
     private int slotNumber;
     public ParkingSlot(int slotNumber, Vehicle vehicle) {
         this.vehicle = vehicle;
@@ -15,5 +15,5 @@ public class ParkingSlot {
     }   
     public Vehicle getVehicle() {
         return this.vehicle;
-    } 
+    }   
 }
