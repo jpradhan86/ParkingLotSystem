@@ -1,7 +1,7 @@
-package com.gojek.assignment;
+package com.jitendra;
 
 public class CommandBuilder {
-	public static void run_cmd(ParkingLot parkingLot, String command) {
+    public static void run_cmd(ParkingLot parkingLot, String command) {
         String[] valueList = command.split(" ");
         String firstValue = valueList[0];
         if (firstValue.equals("create_parking_lot")) {
@@ -26,5 +26,6 @@ public class CommandBuilder {
         if (firstValue.equals("slot_number_for_registration_number")) {
             parkingLot.slotNumberForRegistrationNumber(valueList[1]);
         }   
-    }  
+    }   
 }
+
