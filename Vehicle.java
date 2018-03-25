@@ -1,7 +1,7 @@
-package com.gojek.assignment;
+package com.jitendra;
 
 public class Vehicle {
-	private String registrationNumber;
+    private String registrationNumber;
     private String color;
     public Vehicle(String registrationNumber, String color) {
         setRegistrationNumber(registrationNumber);
@@ -21,5 +21,5 @@ public class Vehicle {
     }   
     public String toString() {
         return getRegistrationNumber() + "\t" + getColor(); 
-    }  
+    }   
 }
