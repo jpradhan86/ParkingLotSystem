@@ -1,4 +1,5 @@
 # ParkingLotSystem
+The repository is available at github.com:jpradhan86/ParkingLotSystem.git
 
 The Solution contains 6 java files
 
