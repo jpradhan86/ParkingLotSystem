@@ -7,47 +7,45 @@ public class ParkingLot {
     private Queue<Integer> emptySlots;
     private int totalSlots;
 
-    public void createParkingLot(int slots) {
+    public String createParkingLot(int slots) {
         this.totalSlots = slots;
         this.parkingSlots = new ParkingSlot[slots];
         emptySlots = new PriorityQueue<Integer>(totalSlots);
         for(int i=1; i<=totalSlots; i++) {
             emptySlots.add(i);
         }   
-        System.out.println("Created a parking lot with " + this.totalSlots + " slots");
+        String output = "Created a parking lot with " + this.totalSlots + " slots";
+        return output;
     }   
-    public boolean parkVehicle(Vehicle vehicle) {
+    public String parkVehicle(Vehicle vehicle) {
         Integer slotNumber = emptySlots.poll();
         if (slotNumber == null) {
-            System.out.println("Sorry, parking lot is full");
-            return false;
+            return "Sorry, parking lot is full";
         }   
         ParkingSlot parkingSlot = new ParkingSlot(slotNumber, vehicle);
         parkingSlots[slotNumber-1] = parkingSlot;
-        System.out.println("Allocated slot number: " + slotNumber);
-        return true;
+        return("Allocated slot number: " + slotNumber);
     }   
-    public void leave(int slotNumber) {
-        if (slotNumber <= 0 && slotNumber > totalSlots) {
-            System.out.println("Slot number " + slotNumber + " does not exist");
-            return;
+    public String leave(int slotNumber) {
+        if (slotNumber <= 0 || slotNumber > totalSlots) {
+            return("Slot number " + slotNumber + " does not exist");
         }   
         else if(this.parkingSlots[slotNumber-1] == null) {
-            System.out.println("Slot number " + slotNumber + " is empty");
-            return;
+            return("Slot number " + slotNumber + " is empty");
         }   
         this.parkingSlots[slotNumber-1] = null;
-        System.out.println("Slot number " + slotNumber + " is free");
         emptySlots.add(slotNumber);
+        return("Slot number " + slotNumber + " is free");
     }   
-    public void status() {
-        System.out.println("Slot No.\tRegistration No\tColour");
+    public String status() {
+        String output = "Slot No.\tRegistration No\tColour\n";
         for(int i=0;i<totalSlots;i++) {
             if (parkingSlots[i] != null)
-                System.out.println(parkingSlots[i]);
-        }   
+                output += parkingSlots[i] + "\n";
+        }
+        return output;
     }   
-    public void registrationNumbersForCarsWithColor(String color) {
+    public String registrationNumbersForCarsWithColor(String color) {
     	boolean found = false;
         ArrayList<String> regNumbers = new ArrayList<String>();
         for(int i=0;i<totalSlots;i++) {
@@ -61,11 +59,11 @@ public class ParkingLot {
             }
         }
         if (!found)
-        	System.out.println("No car of " +color+ " colour parked in the ParkingLot");
+        	return("No car of " +color+ " colour parked in the ParkingLot");
         else
-        	System.out.println(String.join(",", regNumbers));
+        	return(String.join(",", regNumbers));
     }
-    public void slotNumbersForCarsWithColor(String color) {
+    public String slotNumbersForCarsWithColor(String color) {
     	boolean found = false;
         ArrayList<String> slotNumbers = new ArrayList<String>();
         for(int i=0;i<totalSlots;i++) {
@@ -79,25 +77,28 @@ public class ParkingLot {
             }
         }
         if (!found)
-        	System.out.println("No car of " +color+ " colour parked in the ParkingLot");
+        	return("No car of " +color+ " colour parked in the ParkingLot");
         else
-        	System.out.println(String.join(",", slotNumbers));
+        	return(String.join(",", slotNumbers));
     }
-    public void slotNumberForRegistrationNumber(String registrationNumber) {
+    public String slotNumberForRegistrationNumber(String registrationNumber) {
         boolean found = false;
+        int slotFound = 0;
         for(int i=0;i<totalSlots;i++) {
             ParkingSlot currentSlot = parkingSlots[i];
             if (currentSlot == null)
                 continue;
             Vehicle vehicle = currentSlot.getVehicle();
             if (vehicle.getRegistrationNumber().equalsIgnoreCase(registrationNumber)) {
-                System.out.println(i+1);
+                slotFound = i+1;
                 found = true;
                 break;
             }
         }
         if (!found)
-            System.out.println("Not found");
+            return("Not found");
+        else
+        	return(Integer.toString(slotFound));
     }
 }
 
