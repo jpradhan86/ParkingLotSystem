@@ -2,7 +2,7 @@ package com.jitendra;
 
 public class CommandBuilder {
     public static String run_cmd(ParkingLot parkingLot, String command) {
-        String[] valueList = command.split(" ");
+        String[] valueList = command.split("\\s+");
         String firstValue = valueList[0];
         if (firstValue.equals("create_parking_lot")) {
             return(parkingLot.createParkingLot(Integer.parseInt(valueList[1])));
